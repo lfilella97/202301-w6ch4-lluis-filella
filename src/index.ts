@@ -14,10 +14,12 @@ app.use(express.json());
 
 app.use("/things", router);
 
-const { port: imputPort } = await inquirer.prompt<InquirerResponseStructure>(
+const { port: inputPort } = await inquirer.prompt<InquirerResponseStructure>(
   question
 );
 
-app.listen(imputPort, () => {
+const port = inputPort ?? 4000;
+
+app.listen(port, () => {
   createDebug("hola");
 });
