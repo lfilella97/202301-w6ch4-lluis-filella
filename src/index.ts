@@ -1,24 +1,14 @@
 import "./loadEnvoirements.js";
 import express from "express";
-import inquirer, { type PromptModule } from "inquirer";
+import inquirer from "inquirer";
 import { type InquirerResponseStructure } from "./types.js";
+import question from "./question.js";
 
 const app = express();
 
-const question = [
-  {
-    name: "port",
-    type: "input",
-    message: "Introduce a number to open the port",
-    validate(answer: number) {
-      if (Number.isNaN(answer) || Number.isInteger(answer) || answer >= 0) {
-        return true;
-      }
+app.use(express.json());
 
-      return "not a valid value";
-    },
-  },
-];
+app.use("/things");
 
 const { imputPort } = await inquirer.prompt<InquirerResponseStructure>(
   question
