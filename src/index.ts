@@ -20,6 +20,6 @@ const { port: inputPort } = await inquirer.prompt<InquirerResponseStructure>(
 
 const port = inputPort ?? 4000;
 
-app.listen(port, () => {
-  createDebug("hola");
+app.listen(4000, () => {
+  createDebug("server is up!");
 });
