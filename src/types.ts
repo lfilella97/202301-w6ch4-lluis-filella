@@ -1,3 +1,8 @@
 export interface InquirerResponseStructure {
-  imputPort: number;
+  port: number;
+}
+
+export interface ThingInterface {
+  id: number;
+  name: string;
 }
